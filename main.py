@@ -84,14 +84,14 @@ def find_browser():
         if os.path.isfile(pathChromeWindows):
             browser = pathChromeWindows
         else:
-            browser = raw_input("Please, insert the path of your browser's EXE file (Only Chrome or Brave):")
+            browser = input("Please, insert the path of your browser's EXE file (Only Chrome or Brave):")
     else:
         if os.path.isfile(pathBraveMac):
             browser = pathBraveMac
         elif os.path.isfile(pathChromeMac):
             browser = pathChromeMac
         else:
-            browser = raw_input("Please, insert the path of your browser's app file (Only Chrome or Brave):")
+            browser = input("Please, insert the path of your browser's app file (Only Chrome or Brave):")
 
     return browser
 
@@ -104,22 +104,22 @@ if __name__ == '__main__':
 
     if platform.system() == 'Darwin':
         print("Does your Mac have a M1 Processor? (True or False):")
-        x = raw_input()
+        x = input()
         if x == 'True':
             macM1 = x
         print("Saved: " + str(macM1) + "\n")
 
     if email == '':
         print("Enter the email of FutureLearn's account:")
-        email = str(raw_input())
+        email = str(input())
 
     if password == '':
         print("Enter your password:")
-        password = str(raw_input())
+        password = str(input())
 
     if url == '':
         print("Enter the link of your course:")
-        url = str(raw_input())
+        url = str(input())
 
     print('\nSystem: ' + platform.system())
 
@@ -131,12 +131,12 @@ if __name__ == '__main__':
     if not os.path.exists('ffmpeg'):
         print("Downloading ffmpeg...")
         download_ffmpeg()
-        os.chmod('ffmpeg/ffmpeg', 0775)
+        os.chmod('ffmpeg/ffmpeg', 775)
 
     if not os.path.exists('chromedriver'):
         print("Downloading chromedriver...")
         download_chromedriver()
-        os.chmod('chromedriver/chromedriver', 0775)
+        os.chmod('chromedriver/chromedriver', 775)
 
     # CONSTRUCTOR
     options = Options()
