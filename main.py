@@ -133,15 +133,19 @@ if __name__ == '__main__':
         download_ffmpeg()
         os.chmod('ffmpeg/ffmpeg', 775)
 
+    link_driver = 'chromedriver/chromedriver'
+    if platform.system() == 'Windows':
+        link_driver = 'chromedriver/chromedriver.exe'
+
     if not os.path.exists('chromedriver'):
         print("Downloading chromedriver...")
         download_chromedriver()
-        os.chmod('chromedriver/chromedriver', 775)
+        os.chmod(link_driver, 775)
 
     # CONSTRUCTOR
     options = Options()
     options.binary_location = browser
-    drvr = webdriver.Chrome(options=options, executable_path='chromedriver/chromedriver')
+    drvr = webdriver.Chrome(options=options, executable_path=link_driver)
 
     # LOGIN PAGE
     drvr.get('https://www.futurelearn.com/sign-in')
@@ -186,6 +190,10 @@ if __name__ == '__main__':
         if len(drvr.find_elements_by_id('main-content')) == 0:
             time.sleep(1)
 
+        link_ffmpeg = '/ffmpeg/ffmpeg'
+        if platform.system() == 'Windows':
+            link_ffmpeg = '/ffmpeg/bin/ffmpeg.exe'
+
         # DOWNLOAD VIDEO
         has_video = False
         if len(drvr.find_elements_by_css_selector('.video-js[tabindex="-1"]')) != 0:
@@ -199,7 +207,7 @@ if __name__ == '__main__':
                 for resource in resources:
                     if ".m3u8?ts=" in resource['name']:
                         print('Downloading video...')
-                        os.system(os.getcwd() + '/ffmpeg/ffmpeg' + ' -i "' + resource[
+                        os.system(os.getcwd() + link_ffmpeg + ' -i "' + resource[
                             'name'] + '" -bsf:a aac_adtstoasc -c copy ' + os.getcwd() + '/' + title.replace(' ',
                                                                                                             '_') + '/videos/' +
                                   link.split('steps/')[1] + '.mp4 -loglevel quiet')
