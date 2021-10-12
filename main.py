@@ -190,9 +190,9 @@ if __name__ == '__main__':
         if len(drvr.find_elements_by_id('main-content')) == 0:
             time.sleep(1)
 
-        link_ffmpeg = '/ffmpeg/ffmpeg'
+        link_ffmpeg = 'ffmpeg/ffmpeg'
         if platform.system() == 'Windows':
-            link_ffmpeg = '/ffmpeg/bin/ffmpeg.exe'
+            link_ffmpeg = 'ffmpeg/bin/ffmpeg.exe'
 
         # DOWNLOAD VIDEO
         has_video = False
@@ -207,7 +207,7 @@ if __name__ == '__main__':
                 for resource in resources:
                     if ".m3u8?ts=" in resource['name']:
                         print('Downloading video...')
-                        os.system(os.getcwd() + link_ffmpeg + ' -i "' + resource[
+                        os.system(link_ffmpeg + ' -i "' + resource[
                             'name'] + '" -bsf:a aac_adtstoasc -c copy ' + os.getcwd() + '/' + title.replace(' ',
                                                                                                             '_') + '/videos/' +
                                   link.split('steps/')[1] + '.mp4 -loglevel quiet')
@@ -231,7 +231,7 @@ if __name__ == '__main__':
 
         # GET TEXT
         text = '<html><head><link rel="stylesheet" href="../../style.css"></head><body>' + \
-               drvr.find_element_by_id('main-content').get_attribute('outerHTML').encode('utf-8').strip() + \
+               str(drvr.find_element_by_id('main-content').get_attribute('outerHTML').encode('utf-8').strip()) + \
                '</body></html>'
 
         text = text.replace('/links/', 'https://www.futurelearn.com/links/')
