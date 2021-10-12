@@ -167,7 +167,7 @@ if __name__ == '__main__':
     get_links(drvr)
 
     # GET STEPS
-    title = drvr.find_elements_by_class_name('mainHeader-runLink_ljhVP')[0].text
+    title = drvr.find_elements_by_class_name('mainHeader-runLink_ljhVP')[0].text.replace(' ', '_').replace(':', '_').replace('"', '').replace("'", '')
 
     print('Starting with ' + title)
 
