@@ -12,7 +12,7 @@ Mac OS with Intel or M1 Processor or Windows 10 & 7
 First of all you need to install Python on your computer from [here](https://www.python.org/downloads/), then move the "main.py" file to a folder called how you want. At this point you must install the requirement package by using the package manager [pip](https://pip.pypa.io/en/stable/):
 
 ```bash
-pip install selenium
+python3 -m pip install selenium
 ```
 If you have troubles with this part, you can follow this [tutorial](https://packaging.python.org/tutorials/installing-packages/).
 \
