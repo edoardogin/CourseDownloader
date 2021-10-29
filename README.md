@@ -3,6 +3,8 @@
 ## Compatibility
 
 Mac OS with Intel or M1 Processor or Windows 10 & 7
+\
+Python 3 <-- Pay attention
 
 [Brave Browser](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiln5DzwrHzAhUL-qQKHZwdDIIQFnoECAcQAQ&url=https%3A%2F%2Fbrave.com%2F&usg=AOvVaw2CfcgN6wLi3270uJRtAJ62) or
 [Chrome Browser](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiUzKuAw7HzAhXS66QKHW_GB7cQFnoECA4QAQ&url=https%3A%2F%2Fwww.google.com%2Fintl%2Fit_it%2Fchrome%2F&usg=AOvVaw2mSArY3brRVd2oEF94R97T)
